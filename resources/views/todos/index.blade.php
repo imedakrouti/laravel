@@ -12,7 +12,7 @@
                 <li class="list-group-item text-muted">{{$todo['title']}}
 
                 <span class="float-right"><a href="#"style="color:red"> <i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></span>
-                <span class="float-right mx-2"><a href="todos/{{$todo->id}}"style="color:green"> <i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a></span>
+                <span class="float-right mx-2"><a href="todos/{{$todo->id}}/edit"style="color:green"> <i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a></span>
                 <span class="float-right"><a href="todos/{{$todo->id}}"style="color:"> <i class="fa fa-eye fa-2x" aria-hidden="true"></i></a></span>
             </li>
                 @endforeach

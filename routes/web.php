@@ -25,7 +25,7 @@ route::post('/create','todosController@store');
     return view('todos.edit');
 });*/
 route::get('/todos/{id}/edit','todosController@edit');
-route::post('/todos{id}','todosController@update');
+route::post('todos/{id}','todosController@update');
 Auth::routes();
 
 

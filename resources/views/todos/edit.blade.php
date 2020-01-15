@@ -28,13 +28,13 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                             <div class="form-group">
-                              <textarea class="form-control" name="description" id="" rows="3" placeholder="Todo Description"style="resize:none"class="@error('description') is-invalid @enderror">{{$todo->description}}</textarea>
+                               <textarea class="form-control" name="description" id="" rows="3" placeholder="Todo Description"value=""style="resize:none"class="@error('description') is-invalid @enderror ">{{$todo->desc}}</textarea>
                             </div>
                             @error('description')
                             <div class="alert alert-danger">{{ 'aaaaa' }}</div>
                         @enderror
                             <div class="form-group text-center">
-                             <button type="submit" class="btn btn-success w-50">Create </button>
+                             <button type="submit" class="btn btn-success w-50">Edit </button>
                             </div>
                     </form>
                 </div>

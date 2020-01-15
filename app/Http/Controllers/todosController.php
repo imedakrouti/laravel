@@ -46,4 +46,16 @@ return redirect('\todos');
 $todo=Todo::find($id);
 return view('todos.edit')->with('todo',$todo);
 }
+public function update (Request $request,$id){
+  $request->validate([
+    'title'=>'required',
+    'description'=>'required'
+  ]);
+  $todo=Todo::find($id);
+  $todo->title=$request->get('title');
+  $todo->desc=$request->get('description');
+  $todo->save();
+  return redirect('/todos');
+}
+
 }
