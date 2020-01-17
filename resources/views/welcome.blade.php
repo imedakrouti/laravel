@@ -98,3 +98,6 @@
         </div>
     </body>
 </html>
+@extends('todos.layout')
+@section('title','Home')
+@section('navbar')

@@ -24,9 +24,12 @@ route::post('/create','todosController@store');
 /*route::get('/edit',function(){
     return view('todos.edit');
 });*/
-route::get('/todos/{id}/edit','todosController@edit');
-route::post('todos/{id}','todosController@update');
+route::get('/todos/{todo}/edit','todosController@edit');
+//route::post('todos/{id}','todosController@update');
+route::post('todos/{todo}','todosController@update');
+route::get('todos/{id}/delete','todosController@destroy');
+route::get('todos/{todo}/delete','todosController@destroy');
+route::get('todos/{complete}/completed','todosController@completed');
 Auth::routes();
-
 
 Route::get('/home', 'HomeController@index')->name('home');
