@@ -18,6 +18,7 @@ class CreateTodosTable extends Migration
             $table->string('title');
             $table->text('desc');
             $table->BOOLEAN('completed');
+            $table->string('password');
             $table->timestamps();
         });
     }

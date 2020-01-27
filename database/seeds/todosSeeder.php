@@ -11,10 +11,10 @@ class todosSeeder extends Seeder
      *
      * @return void
      */
-    
+
     public function run()
     {
         factory(App\Todo::class, 9)->create();
     }
-    
+
 }

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 use App\Todo;
 class todosController extends Controller
 {
-   
+
     public function index(){
      // $titles = DB::table('todos')->pluck('title');
        $todos=Todo::all();
-       
+
         //return view('todos.index',['todos'=>$todos]);
         //return view('todos.index')->with('todos',$todos);
         //return view('todos.index',compact('titles'));
@@ -34,12 +35,15 @@ public function store(Request $request){//dependency injection
 //return $request->input('title');
 //return $request->title;
  $request->validate([
-   'title'=>'required',
-   'description'=>'required'
+   'title'=>'required|min:3|max:255|unique:todos',
+   'description'=>'required|min:3|max:255',
+   'password' => 'required|string|min:3|confirmed',
+
  ]);
 $todo=new Todo();
 $todo->title=$request->title;
 $todo->desc=$request->description;
+$todo->password= Hash::make($request->password);
 $todo->save();
 return redirect('\todos')->with('status', 'Add with success');
 }
@@ -49,7 +53,7 @@ return view('todos.edit')->with('todo',$todo);
 }
 public function update (Request $request,Todo $todo){
   $request->validate([
-    'title'=>'required',
+            'title' => ['required', 'string', 'min:8'],
     'description'=>'required'
   ]);
   //$todo=Todo::find($id);
